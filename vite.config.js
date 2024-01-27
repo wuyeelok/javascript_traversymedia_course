@@ -1,6 +1,6 @@
 import htmlPurge from "vite-plugin-purgecss";
 
 export default {
-  base: "/beyond-css__website-starter-template/",
+  base: "/javascript_traversymedia_course/",
   plugins: [htmlPurge()],
 };
