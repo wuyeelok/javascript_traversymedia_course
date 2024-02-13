@@ -1,4 +1,6 @@
-console.log(500);
+// comment
+
+// console.log(500);
 
 console.log("sdfdsf");
 
@@ -10,7 +12,10 @@ console.log(y);
 
 console.error("Alllert");
 
-console.warn("sdfsdfew");
+console.warn("sdff");
+console.warn("sdff");
+console.warn("sdff");
+console.warn("sdff");
 
 console.table({ name: "Kenenth", age: 32 });
 
