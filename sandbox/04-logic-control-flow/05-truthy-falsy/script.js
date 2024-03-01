@@ -114,6 +114,12 @@ if (check) {
 
 console.log(Boolean(check));
 
+if (check.length > 0) {
+  console.log("Have something in the array");
+} else {
+  console.log("Nothing in the array");
+}
+
 const people = 0;
 
 if (!isNaN(people)) {
