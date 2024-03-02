@@ -20,6 +20,10 @@ export default {
           __dirname,
           "sandbox/05-iteration-array-methods/11-array-method-challenges/index.html"
         ),
+        for_of: resolve(
+          __dirname,
+          "sandbox/05-iteration-array-methods/05-for-of-loop/index.html"
+        ),
       },
     },
   },
