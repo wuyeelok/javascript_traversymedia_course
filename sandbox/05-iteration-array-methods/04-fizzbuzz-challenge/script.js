@@ -27,7 +27,7 @@ console.log("_____________________________");
 
 let i = 1;
 while (i <= 100) {
-  if (i % 3 === 0 && i % 5 === 0) {
+  if (i % 15 === 0) {
     console.log("FizzBuzz");
   } else if (i % 3 === 0) {
     console.log("Fizz");
@@ -44,7 +44,7 @@ console.log("_____________________________");
 
 let j = 1;
 do {
-  if (j % 3 === 0 && j % 5 === 0) {
+  if (j % 15 === 0) {
     console.log("FizzBuzz");
   } else if (j % 3 === 0) {
     console.log("Fizz");
