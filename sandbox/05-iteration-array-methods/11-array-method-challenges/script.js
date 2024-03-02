@@ -1,4 +1,5 @@
 console.log("Array Method Challenges...");
+console.log("Challege 1...");
 
 const people = [
   {
@@ -78,3 +79,16 @@ console.log(youngPeople);
 console.log(youngPeople2);
 
 console.log(people);
+
+console.log("Challege 2...");
+
+const numbers = [2, -30, 50, 20, -12, -9, 7];
+console.log(numbers);
+
+const addPostiveNum = function (arr) {
+  return arr.filter((n) => n > 0).reduce((n1, n2) => n1 + n2, 0);
+};
+const positiveSum = addPostiveNum(numbers);
+console.log(positiveSum);
+
+console.log(numbers);
