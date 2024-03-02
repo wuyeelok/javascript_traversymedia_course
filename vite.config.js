@@ -16,6 +16,10 @@ export default {
           __dirname,
           "sandbox/05-iteration-array-methods/04-fizzbuzz-challenge/index.html"
         ),
+        array_method_challege: resolve(
+          __dirname,
+          "sandbox/05-iteration-array-methods/11-array-method-challenges/index.html"
+        ),
       },
     },
   },
