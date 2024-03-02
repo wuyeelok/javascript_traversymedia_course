@@ -12,6 +12,10 @@ export default {
           __dirname,
           "sandbox/04-logic-control-flow/05-truthy-falsy/index.html"
         ),
+        fizzbuzz_challenge: resolve(
+          __dirname,
+          "sandbox/05-iteration-array-methods/04-fizzbuzz-challenge/index.html"
+        ),
       },
     },
   },
