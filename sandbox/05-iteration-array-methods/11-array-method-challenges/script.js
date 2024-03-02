@@ -92,3 +92,16 @@ const positiveSum = addPostiveNum(numbers);
 console.log(positiveSum);
 
 console.log(numbers);
+
+console.log("Challege 3...");
+const words = ["coder", "programmer", "developer"];
+console.log(words);
+
+const cap1stLetter = function (wordsArr) {
+  return wordsArr.map((w) => w.charAt(0).toUpperCase() + w.slice(1));
+};
+
+const capitalizedWords = cap1stLetter(words);
+console.log(capitalizedWords);
+
+console.log(words);
