@@ -75,7 +75,7 @@ let changeColorIntervalID;
 function startChangeBackGroundColor() {
   // console.log(changeColorIntervalID);
   if (!changeColorIntervalID) {
-    changeColorIntervalID = setInterval(changeBackGroundColor, 2000);
+    changeColorIntervalID = setInterval(changeRandomBGColor, 2000);
   }
   // console.log(changeColorIntervalID);
 }
@@ -97,6 +97,14 @@ function changeBackGroundColor() {
     document.body.style.backgroundColor = "white";
     document.body.style.color = "black";
   }
+}
+
+function changeRandomBGColor() {
+  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  const randomColor2 = Math.floor(Math.random() * 16777215).toString(16);
+
+  document.body.style.backgroundColor = `#${randomColor}`;
+  document.body.style.color = `#${randomColor2}`;
 }
 
 startBtn.addEventListener("click", startChangeBackGroundColor);
