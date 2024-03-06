@@ -28,6 +28,10 @@ export default {
           __dirname,
           "sandbox/05-iteration-array-methods/06-for-in-loop/index.html"
         ),
+        setcleartimeout: resolve(
+          __dirname,
+          "sandbox/09-asynchronous-javascript/01-settimeout-cleartimeout/index.html"
+        ),
       },
     },
   },
