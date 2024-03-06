@@ -32,6 +32,10 @@ export default {
           __dirname,
           "sandbox/09-asynchronous-javascript/01-settimeout-cleartimeout/index.html"
         ),
+        setclearinterval: resolve(
+          __dirname,
+          "sandbox/09-asynchronous-javascript/02-setinterval-clearinterval/index.html"
+        ),
       },
     },
   },
