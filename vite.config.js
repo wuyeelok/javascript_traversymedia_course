@@ -36,6 +36,10 @@ export default {
           __dirname,
           "sandbox/09-asynchronous-javascript/02-setinterval-clearinterval/index.html"
         ),
+        callback: resolve(
+          __dirname,
+          "sandbox/09-asynchronous-javascript/03-callbacks/index.html"
+        ),
       },
     },
   },
