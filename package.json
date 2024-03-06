@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite --port 11481",
     "build": "vite build",
-    "preview": "vite preview --port 17947"
+    "preview": "vite preview --port 17947",
+    "build-netlify": "vite build --base=/",
+    "preview-netlify": "vite preview --base=/ --port 17948"
   },
   "browserslist": "> 1%, last 2 versions, Firefox ESR, not dead",
   "devDependencies": {
