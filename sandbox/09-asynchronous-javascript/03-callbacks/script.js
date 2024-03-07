@@ -28,3 +28,39 @@ function getPosts() {
 
 createPost({ title: 'Post Three', body: 'This is post' }, getPosts);
  */
+
+// DOM Variable
+const clickMeBtn = document.querySelector("button");
+
+function myToggle(e) {
+  e.target.classList.toggle("danger");
+}
+
+clickMeBtn.addEventListener("click", myToggle);
+
+const myPosts = [
+  { title: "Post 1", body: "This is Post 1" },
+  { title: "Post 2", body: "This is Post 2" },
+  { title: "Post 3", body: "This is Post 3" },
+];
+
+function createPost(post, cb) {
+  setTimeout(() => {
+    myPosts.push(post);
+    cb();
+  }, 3000);
+}
+
+function getPosts() {
+  setTimeout(() => {
+    myPosts.forEach((post) => {
+      const myDiv = document.getElementById("posts");
+      const myP = document.createElement("div");
+
+      myP.innerHTML = `<b>${post.title}</b> - ${post.body}`;
+      myDiv.appendChild(myP);
+    });
+  }, 2000);
+}
+
+createPost({ title: "Post 7", body: "777" }, getPosts);
