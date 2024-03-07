@@ -1,4 +1,4 @@
-const xhr = new XMLHttpRequest();
+/* const xhr = new XMLHttpRequest();
 
 // Sepcify method and endpoint/URL
 // xhr.open('GET', './movies.json');
@@ -25,3 +25,4 @@ xhr.onreadystatechange = function () {
 
 // Send request
 xhr.send();
+ */

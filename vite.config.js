@@ -40,6 +40,10 @@ export default {
           __dirname,
           "sandbox/09-asynchronous-javascript/03-callbacks/index.html"
         ),
+        ajax_xhrobj: resolve(
+          __dirname,
+          "sandbox/09-asynchronous-javascript/04-ajax-xhr/index.html"
+        ),
       },
     },
   },
