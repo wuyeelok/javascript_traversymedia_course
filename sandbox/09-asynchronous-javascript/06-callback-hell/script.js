@@ -73,13 +73,13 @@ function getMyDataPromise(endpointURL) {
 }
 
 // Try to refactor call backhell to Promise hell??
-getMyDataPromise("./movies.json")
+getMyDataPromise("../../../movies.json")
   .then((data) => {
     console.log("Movie", data);
-    getMyDataPromise("./actors.json")
+    getMyDataPromise("../../../actors.json")
       .then((data) => {
         console.log("Actor", data);
-        getMyDataPromise("./directors.json")
+        getMyDataPromise("../../../directors.json")
           .then((data) => console.log("Director", data))
           .finally(() => console.log("Finish Director"));
       })
