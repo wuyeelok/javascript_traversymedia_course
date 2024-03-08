@@ -28,7 +28,19 @@ fetch("../../../movies.json")
 
     return myData;
   })
-  .then((data) => console.log("Text file test:", data))
+  .then((data) => {
+    console.log("Text file test:", data);
+
+    return fetch("https://api.github.com/users/wuyeelok");
+  })
+  .then((res) => {
+    const contentType = res.headers.get("content-type");
+    console.log(contentType);
+    return res.json();
+  })
+  .then(
+    (data) => (document.querySelector("h1").innerText = `In ${data.location}`)
+  )
   .catch((error) => console.error("NOOOOOOOO", error));
 
 /* fetch("../../../test.txt")
