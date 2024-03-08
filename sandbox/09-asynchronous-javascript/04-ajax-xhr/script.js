@@ -57,6 +57,9 @@ function getMyJSONData(cb) {
     "GET",
     `http://www.omdbapi.com/?s=fight&y=${randomYear(2024)}&apikey=f1ed35f`
   );
+  myXHR.addEventListener("error", () => {
+    noticeDIV.innerText = "Error";
+  });
 
   myXHR.onreadystatechange = function () {
     if ((this.readyState === 4) & (this.status === 200)) {
