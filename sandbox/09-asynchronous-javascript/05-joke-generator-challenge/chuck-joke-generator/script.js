@@ -17,7 +17,7 @@ function generateJoke(callBackFunc) {
 
   xhr.onreadystatechange = function () {
     if (xhr.status === 200 && xhr.readyState === 4) {
-      const jokeObj = JSON.parse(xhr.responseText);
+      const jokeObj = JSON.parse(this.responseText);
       callBackFunc(jokeObj.value);
     }
   };
