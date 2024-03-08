@@ -45,5 +45,36 @@ const myProm = new Promise((res, rej) => {
 myProm
   .then((target) => {
     console.log(`Goal: ${target.goal}, deadline: ${target.deadline}`);
+    return target.goal;
   })
-  .catch((err) => console.log(err));
+  .then((goal) => {
+    console.log("This the goal", goal);
+    return goal.length;
+  })
+  .then((len) => console.log("Length is: " + len))
+  .catch((err) => {
+    console.log(err);
+    return "Code 66";
+  })
+  .then((code) => console.log(code));
+
+/* function testPromise() {
+  setTimeout(() => {
+    const po = new Promise(function (resolve, reject) {
+      reject("No");
+    });
+
+    console.log("ABC");
+
+    po.then((val) => console.log(val))
+      .catch((err) => console.error(err))
+      .finally(() => {
+        console.log("FFFF");
+      });
+    console.log(po);
+
+    console.log("DEF");
+  }, 2000);
+}
+
+testPromise(); */
