@@ -16,9 +16,12 @@ function generateJoke(callBackFunc) {
   xhr.addEventListener("error", () => (jokeEl.innerText = "Error!"));
 
   xhr.onreadystatechange = function () {
-    if (xhr.status === 200 && xhr.readyState === 4) {
-      const jokeObj = JSON.parse(this.responseText);
-      callBackFunc(jokeObj.value);
+    if (this.readyState === 4) {
+      if (this.status === 200) {
+        const jokeObj = JSON.parse(this.responseText);
+        callBackFunc(jokeObj.value);
+      } else {
+      }
     }
   };
 
