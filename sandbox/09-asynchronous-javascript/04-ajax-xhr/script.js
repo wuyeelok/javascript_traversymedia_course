@@ -28,6 +28,7 @@ xhr.send();
  */
 const noticeDIV = document.getElementById("notice");
 const resulstUL = document.getElementById("results");
+const refreshBtn = document.querySelector("button");
 
 function showMovies(movies) {
   movies.forEach((movie) => {
@@ -37,8 +38,14 @@ function showMovies(movies) {
   });
 }
 
+function removeMovies() {
+  while (resulstUL.firstElementChild) {
+    resulstUL.removeChild(resulstUL.firstElementChild);
+  }
+}
+
 function getMyJSONData(cb) {
-  noticeDIV.innerText = "Loading Movies...";
+  noticeDIV.innerText = "Loading Latest Movies...";
 
   const myXHR = new XMLHttpRequest();
   myXHR.open("GET", "./movies.json");
@@ -59,5 +66,10 @@ function getMyJSONData(cb) {
 
   myXHR.send();
 }
+
+refreshBtn.addEventListener("click", () => {
+  removeMovies();
+  getMyJSONData(showMovies);
+});
 
 getMyJSONData(showMovies);
