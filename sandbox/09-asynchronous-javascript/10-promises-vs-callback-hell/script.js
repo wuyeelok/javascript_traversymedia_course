@@ -11,7 +11,14 @@ function getMyDataProm(endpointURL) {
     myXHR.onreadystatechange = () => {
       if (myXHR.readyState === 4) {
         if (myXHR.status === 200) {
-          resolve(JSON.parse(myXHR.responseText));
+          let myData;
+
+          try {
+            myData = JSON.parse(myXHR.responseText);
+            resolve(myData);
+          } catch (e) {
+            reject("Something went wrong with the JSON");
+          }
         } else {
           reject("Something went wrong");
         }
