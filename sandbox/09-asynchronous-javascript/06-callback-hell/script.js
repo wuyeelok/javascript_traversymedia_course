@@ -26,7 +26,7 @@ getData('./movies.json', (data) => {
  */
 console.log("Call back hell!!!");
 
-function getMyData(endpointURL) {
+function getMyData(endpointURL, cb) {
   const myXHR = new XMLHttpRequest();
 
   myXHR.open("GET", endpointURL);
@@ -35,7 +35,7 @@ function getMyData(endpointURL) {
 
   myXHR.onreadystatechange = () => {
     if (myXHR.readyState === 4 && myXHR.status === 200) {
-      console.log(JSON.parse(myXHR.responseText));
+      cb(JSON.parse(myXHR.responseText));
     }
   };
   setTimeout(() => {
@@ -43,7 +43,11 @@ function getMyData(endpointURL) {
   }, Math.floor(Math.random() * 3000) + 100);
 }
 
-// No guarantee of order
-getMyData("./movies.json");
-getMyData("./actors.json");
-getMyData("./directors.json");
+// Callback hell when try to gurantee the order of getMyData
+getMyData("./movies.json", (data) => {
+  console.log(data);
+  getMyData("./actors.json", (data) => {
+    console.log(data);
+    getMyData("./directors.json", (data) => console.log(data));
+  });
+});
