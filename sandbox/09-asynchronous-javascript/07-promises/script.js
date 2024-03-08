@@ -47,9 +47,18 @@ promise.then(() => {
 const promise2 = new Promise((res, rej) => {
   // Some Async task
   setTimeout(() => {
-    console.log("Complete2");
-    res();
+    let error = true;
+
+    if (!error) {
+      console.log("Complete2");
+      res({ color: "red" });
+    } else {
+      rej("Something wrong");
+    }
   }, 2000);
-}).then(() => console.log("Prom 2 consumed"));
+})
+  .then((colorObj) => console.log("Prom 2 consumed", colorObj.color))
+  .catch((error) => console.log(error))
+  .finally(() => console.log("Promise resolved or rejected"));
 
 console.log("Hiii");
