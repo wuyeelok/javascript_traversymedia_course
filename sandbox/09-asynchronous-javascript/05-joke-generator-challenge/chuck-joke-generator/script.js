@@ -32,3 +32,7 @@ function generateJoke(callBackFunc) {
 jokeBtn.addEventListener("click", () => {
   generateJoke(showJoke);
 });
+document.addEventListener(
+  "DOMContentLoaded",
+  () => (jokeEl.innerText = "Press the button below for a random joke")
+);
