@@ -68,6 +68,10 @@ export default {
           __dirname,
           "sandbox/09-asynchronous-javascript/11-promise-all/index.html"
         ),
+        fetch_basic: resolve(
+          __dirname,
+          "sandbox/10-fetch-and-async-await/01-fetch-basics/index.html"
+        ),
       },
     },
   },
