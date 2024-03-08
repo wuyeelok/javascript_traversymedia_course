@@ -52,6 +52,10 @@ export default {
           __dirname,
           "sandbox/09-asynchronous-javascript/06-callback-hell/index.html"
         ),
+        promiseintro: resolve(
+          __dirname,
+          "sandbox/09-asynchronous-javascript/07-promises/index.html"
+        ),
       },
     },
   },
