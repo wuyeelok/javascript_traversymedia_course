@@ -63,4 +63,29 @@ function getPosts() {
   }, 2000);
 }
 
-createPost({ title: "Post 7", body: "777" }, getPosts);
+// createPost({ title: "Post 7", body: "777" }, getPosts);
+
+function createPostPromise(post) {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      let error = false;
+
+      if (!error) {
+        myPosts.push(post);
+        res();
+      } else {
+        rej("Went wrong");
+      }
+    }, 3000);
+  });
+}
+
+function showError(error) {
+  const h3 = document.createElement("h3");
+  h3.innerText = error;
+  document.getElementById("posts").appendChild(h3);
+}
+
+createPostPromise({ title: "Post 9", body: "Nine" })
+  .then(getPosts)
+  .catch(showError);
