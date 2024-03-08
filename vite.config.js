@@ -48,6 +48,10 @@ export default {
           __dirname,
           "sandbox/09-asynchronous-javascript/05-joke-generator-challenge/chuck-joke-generator/index.html"
         ),
+        callbackhell: resolve(
+          __dirname,
+          "sandbox/09-asynchronous-javascript/06-callback-hell/index.html"
+        ),
       },
     },
   },
