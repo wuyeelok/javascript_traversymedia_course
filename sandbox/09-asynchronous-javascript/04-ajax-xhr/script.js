@@ -26,3 +26,38 @@ xhr.onreadystatechange = function () {
 // Send request
 xhr.send();
  */
+const noticeDIV = document.getElementById("notice");
+const resulstUL = document.getElementById("results");
+
+function showMovies(movies) {
+  movies.forEach((movie) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<b>${movie.title}</b> Year: ${movie.year}`;
+    resulstUL.appendChild(li);
+  });
+}
+
+function getMyJSONData(cb) {
+  noticeDIV.innerText = "Loading Movies...";
+
+  const myXHR = new XMLHttpRequest();
+  myXHR.open("GET", "./movies.json");
+
+  myXHR.onreadystatechange = function () {
+    if ((this.readyState === 4) & (this.status === 200)) {
+      setTimeout(() => {
+        console.log("Success getting movies");
+        console.log(this.responseText);
+        console.log(JSON.parse(this.responseText));
+
+        cb(JSON.parse(this.responseText));
+
+        noticeDIV.innerText = "";
+      }, 4000);
+    }
+  };
+
+  myXHR.send();
+}
+
+getMyJSONData(showMovies);
