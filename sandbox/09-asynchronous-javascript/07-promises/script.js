@@ -31,3 +31,25 @@ getUser
 console.log('Hello from global scope');
  */
 console.log("Promise Intro");
+
+const promise = new Promise((res, rej) => {
+  // Some Async task
+  setTimeout(() => {
+    console.log("Complete");
+    res();
+  }, 2000);
+});
+
+promise.then(() => {
+  console.log("Promise consume");
+});
+
+const promise2 = new Promise((res, rej) => {
+  // Some Async task
+  setTimeout(() => {
+    console.log("Complete2");
+    res();
+  }, 2000);
+}).then(() => console.log("Prom 2 consumed"));
+
+console.log("Hiii");
