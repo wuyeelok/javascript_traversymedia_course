@@ -34,10 +34,10 @@ const myDirectorPromise = getData("../../../directors.json");
 const dummyProm = new Promise((res, rej) => {
   setTimeout(() => {
     res("Ha Ha Ha");
-  }, 2000);
+  }, 6000);
 });
 
-Promise.all([myMoviePromise, myActorPromise, myDirectorPromise, dummyProm])
+Promise.all([dummyProm, myMoviePromise, myActorPromise, myDirectorPromise])
   .then((data) => {
     console.log("AAA", data);
   })
