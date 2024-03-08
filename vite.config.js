@@ -56,6 +56,10 @@ export default {
           __dirname,
           "sandbox/09-asynchronous-javascript/07-promises/index.html"
         ),
+        promisechain: resolve(
+          __dirname,
+          "sandbox/09-asynchronous-javascript/09-promise-chaining/index.html"
+        ),
       },
     },
   },
