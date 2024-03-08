@@ -21,6 +21,7 @@ function generateJoke(callBackFunc) {
         const jokeObj = JSON.parse(this.responseText);
         callBackFunc(jokeObj.value);
       } else {
+        jokeEl.innerText = "Something went wrong...";
       }
     }
   };
