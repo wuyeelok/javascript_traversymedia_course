@@ -33,7 +33,7 @@ const refreshBtn = document.querySelector("button");
 function showMovies(movies) {
   movies.forEach((movie) => {
     const li = document.createElement("li");
-    li.innerHTML = `<b>${movie.title}</b> Year: ${movie.year}`;
+    li.innerHTML = `<b>${movie.Title}</b> Year: ${movie.Year}`;
     resulstUL.appendChild(li);
   });
 }
@@ -44,11 +44,19 @@ function removeMovies() {
   }
 }
 
+function randomYear(currentYear) {
+  const adjust = Math.floor(Math.random() * 50);
+  return currentYear - adjust;
+}
+
 function getMyJSONData(cb) {
-  noticeDIV.innerText = "Loading Latest Movies...";
+  noticeDIV.innerText = `Loading Random "Fight" title Movies...`;
 
   const myXHR = new XMLHttpRequest();
-  myXHR.open("GET", "./movies.json");
+  myXHR.open(
+    "GET",
+    `http://www.omdbapi.com/?s=fight&y=${randomYear(2024)}&apikey=f1ed35f`
+  );
 
   myXHR.onreadystatechange = function () {
     if ((this.readyState === 4) & (this.status === 200)) {
@@ -57,7 +65,7 @@ function getMyJSONData(cb) {
         console.log(this.responseText);
         console.log(JSON.parse(this.responseText));
 
-        cb(JSON.parse(this.responseText));
+        cb(JSON.parse(this.responseText).Search);
 
         noticeDIV.innerText = "";
       }, 4000);
