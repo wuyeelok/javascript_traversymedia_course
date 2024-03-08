@@ -26,3 +26,19 @@ function getData(endpoint) {
     }, Math.floor(Math.random() * 3000) + 1000);
   });
 }
+
+const myMoviePromise = getData("../../../movies.json");
+const myActorPromise = getData("../../../actors.json");
+const myDirectorPromise = getData("../../../directors.json");
+
+const dummyProm = new Promise((res, rej) => {
+  setTimeout(() => {
+    res("Ha Ha Ha");
+  }, 2000);
+});
+
+Promise.all([myMoviePromise, myActorPromise, myDirectorPromise, dummyProm])
+  .then((data) => {
+    console.log("AAA", data);
+  })
+  .catch((error) => console.log(error));
