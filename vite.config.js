@@ -64,6 +64,10 @@ export default {
           __dirname,
           "sandbox/09-asynchronous-javascript/10-promises-vs-callback-hell/index.html"
         ),
+        promise_all: resolve(
+          __dirname,
+          "sandbox/09-asynchronous-javascript/11-promise-all/index.html"
+        ),
       },
     },
   },
