@@ -44,6 +44,10 @@ export default {
           __dirname,
           "sandbox/09-asynchronous-javascript/04-ajax-xhr/index.html"
         ),
+        chunkjoke: resolve(
+          __dirname,
+          "sandbox/09-asynchronous-javascript/05-joke-generator-challenge/chuck-joke-generator/index.html"
+        ),
       },
     },
   },
