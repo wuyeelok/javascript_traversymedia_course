@@ -1,38 +1,38 @@
-/* function getData(endpoint) {
+function getMyDataProm(endpointURL) {
   return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
+    const myXHR = new XMLHttpRequest();
 
-    xhr.open('GET', endpoint);
+    myXHR.open("GET", endpointURL);
 
-    xhr.onreadystatechange = function () {
-      if (this.readyState === 4) {
-        if (this.status === 200) {
-          resolve(JSON.parse(this.responseText));
+    myXHR.addEventListener("error", () => {
+      reject("Something is terribly wrong!");
+    });
+
+    myXHR.onreadystatechange = () => {
+      if (myXHR.readyState === 4) {
+        if (myXHR.status === 200) {
+          resolve(JSON.parse(myXHR.responseText));
         } else {
-          reject('Something went wrong');
+          reject("Something went wrong");
         }
       }
     };
-
     setTimeout(() => {
-      xhr.send();
-    }, Math.floor(Math.random() * 3000) + 1000);
+      myXHR.send();
+    }, Math.floor(Math.random() * 3000) + 100);
   });
 }
 
-// Whatever we return from a .then() is passed into the next .then() callback function args
-getData('./movies.json')
-  .then((movies) => {
-    console.log(movies);
-    return getData('./actors.json');
-  })
-  .then((actors) => {
-    console.log(actors);
-    return getData('./directors.json');
-  })
-  .then((directors) => {
-    console.log(directors);
-  })
-  .catch((error) => console.log(error));
- */
 console.log("promise vs callback hell");
+
+getMyDataProm("../../../movies.json")
+  .then((data) => {
+    console.log("My Movies", data);
+    return getMyDataProm("../../../actors.json");
+  })
+  .then((data) => {
+    console.log("My Actors", data);
+    return getMyDataProm("../../../directors.json");
+  })
+  .then((data) => console.log("My Directors", data))
+  .catch((err) => console.error(err));
