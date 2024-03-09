@@ -82,7 +82,14 @@ jokeBtn3.addEventListener("click", () => {
     .then((jokeObj) => jokeObj.value)
     .then((joke) => showJoke(joke))
     .catch((error) => {
-      jokeEl.innerText = error.message;
+      let msg;
+
+      if (error.message.includes("Failed to fetch")) {
+        msg = "Error";
+      } else {
+        msg = error.message;
+      }
+      jokeEl.innerText = msg;
     });
 });
 
