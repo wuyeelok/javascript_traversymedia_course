@@ -72,7 +72,6 @@ jokeBtn3.addEventListener("click", () => {
   jokeEl.innerText = "Loading...";
   generateJoke3(randomJokeAPI)
     .then((resp) => {
-      console.log(resp);
       if (resp.ok && resp.status === 200) {
         return resp.json();
       } else {
