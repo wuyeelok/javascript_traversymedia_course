@@ -1,5 +1,7 @@
 console.log("Begin Challege...");
 
+const randomJokeAPI = "https://api.chucknorris.io/jokes/random";
+
 // DOM Varaible
 const jokeEl = document.getElementById("joke");
 const jokeBtn = document.getElementById("joke-btn");
@@ -10,9 +12,9 @@ function showJoke(joke) {
   jokeEl.innerText = joke;
 }
 
-function generateJoke(callBackFunc) {
+function generateJoke(url, callBackFunc) {
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", "https://api.chucknorris.io/jokes/random");
+  xhr.open("GET", url);
   xhr.addEventListener("error", () => (jokeEl.innerText = "Error!"));
 
   xhr.onreadystatechange = function () {
@@ -39,15 +41,15 @@ function generateJoke3() {
 
 jokeBtn.addEventListener("click", () => {
   jokeEl.innerText = "Loading...";
-  generateJoke(showJoke);
+  generateJoke(randomJokeAPI, showJoke);
 });
 jokeBtn2.addEventListener("click", () => {
   jokeEl.innerText = "Loading...";
-  generateJoke2(showJoke);
+  generateJoke2();
 });
 jokeBtn3.addEventListener("click", () => {
   jokeEl.innerText = "Loading...";
-  generateJoke3(showJoke);
+  generateJoke3();
 });
 
 document.addEventListener(
