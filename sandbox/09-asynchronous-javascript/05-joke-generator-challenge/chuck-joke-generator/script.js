@@ -31,8 +31,27 @@ function generateJoke(url, callBackFunc) {
   xhr.send();
 }
 
-function generateJoke2() {
-  console.log("generateJoke2");
+function generateJoke2(url) {
+  return new Promise((resovle, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.addEventListener("error", () => {
+      reject("Error"); // Never called in this line even if offline??
+    });
+
+    xhr.onreadystatechange = function () {
+      if (this.readyState === XMLHttpRequest.DONE) {
+        if (this.status === 200) {
+          const jokeObj = JSON.parse(this.responseText);
+          resovle(jokeObj.value);
+        } else {
+          reject("Something went wrong...");
+        }
+      }
+    };
+
+    xhr.send();
+  });
 }
 
 function generateJoke3() {
@@ -45,7 +64,9 @@ jokeBtn.addEventListener("click", () => {
 });
 jokeBtn2.addEventListener("click", () => {
   jokeEl.innerText = "Loading...";
-  generateJoke2();
+  generateJoke2(randomJokeAPI)
+    .then((joke) => showJoke(joke))
+    .catch((error) => (jokeEl.innerText = error));
 });
 jokeBtn3.addEventListener("click", () => {
   jokeEl.innerText = "Loading...";
