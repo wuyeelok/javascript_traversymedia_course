@@ -54,8 +54,8 @@ function generateJoke2(url) {
   });
 }
 
-function generateJoke3() {
-  console.log("generateJoke3");
+function generateJoke3(url) {
+  return fetch(url);
 }
 
 jokeBtn.addEventListener("click", () => {
@@ -70,7 +70,20 @@ jokeBtn2.addEventListener("click", () => {
 });
 jokeBtn3.addEventListener("click", () => {
   jokeEl.innerText = "Loading...";
-  generateJoke3();
+  generateJoke3(randomJokeAPI)
+    .then((resp) => {
+      console.log(resp);
+      if (resp.ok && resp.status === 200) {
+        return resp.json();
+      } else {
+        throw new Error("Fail to get jokes!");
+      }
+    })
+    .then((jokeObj) => jokeObj.value)
+    .then((joke) => showJoke(joke))
+    .catch((error) => {
+      jokeEl.innerText = error.message;
+    });
 });
 
 document.addEventListener(
