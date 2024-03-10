@@ -13,7 +13,12 @@ generateBtn.addEventListener("click", () => {
       if (!response.ok || response.status !== 200) {
         throw new Error("Fail to get user!");
       }
+
+      return response.json();
     })
+    .then((responseObj) => responseObj.results)
+    .then((results) => results[0])
+    .then((userObj) => console.log(userObj))
     .catch((error) => {
       let msg;
 
