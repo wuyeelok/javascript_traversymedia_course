@@ -4,6 +4,7 @@ const generateBtn = document.getElementById("generate");
 const userDiv = document.getElementById("user");
 const spinnerDiv = document.querySelector(".spinner");
 const bodyEle = document.querySelector("body");
+const imgEle = userDiv.querySelector("img");
 
 const api = "https://randomuser.me/api/";
 
@@ -16,6 +17,10 @@ function changeBGColor(gender) {
   } else if (gender === "male") {
     bodyEle.classList.add("bg-blue-800");
   }
+}
+
+function changeUserImg(imgUrl) {
+  imgEle.src = imgUrl;
 }
 
 generateBtn.addEventListener("click", () => {
@@ -33,6 +38,9 @@ generateBtn.addEventListener("click", () => {
     .then((userObj) => {
       const gender = userObj.gender;
       changeBGColor(gender);
+
+      const imgUrl = userObj.picture.large;
+      changeUserImg(imgUrl);
     })
     .catch((error) => {
       let msg;
