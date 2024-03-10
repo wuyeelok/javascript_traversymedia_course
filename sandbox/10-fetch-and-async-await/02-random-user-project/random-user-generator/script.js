@@ -19,7 +19,7 @@ function changeBGColor(gender) {
   }
 }
 
-function showRandomUser(userObj) {
+function displayRandomUser(userObj) {
   userDiv.innerHTML = `
     <div class="flex justify-between">
           <div class="flex">
@@ -63,7 +63,7 @@ function fetchUser() {
       const gender = userObj.gender;
       changeBGColor(gender);
 
-      showRandomUser(userObj);
+      displayRandomUser(userObj);
     })
     .catch((error) => {
       let msg;
