@@ -57,7 +57,7 @@ function fetchUser() {
 
       return response.json();
     })
-    .then((responseObj) => responseObj.results)
+    .then((data) => data.results)
     .then((results) => results[0])
     .then((userObj) => {
       const gender = userObj.gender;
