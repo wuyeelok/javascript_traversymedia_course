@@ -82,3 +82,7 @@ generateBtn.addEventListener("click", () => {
   spinnerDiv.classList.remove("hidden");
   fetchUser();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetchUser();
+});
