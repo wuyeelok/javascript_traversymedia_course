@@ -48,8 +48,7 @@ function showRandomUser(userObj) {
     `;
 }
 
-generateBtn.addEventListener("click", () => {
-  spinnerDiv.classList.remove("hidden");
+function fetchUser() {
   fetch(api)
     .then((response) => {
       if (!response.ok || response.status !== 200) {
@@ -77,4 +76,9 @@ generateBtn.addEventListener("click", () => {
       userDiv.innerText = msg;
     })
     .finally(() => spinnerDiv.classList.add("hidden"));
+}
+
+generateBtn.addEventListener("click", () => {
+  spinnerDiv.classList.remove("hidden");
+  fetchUser();
 });
