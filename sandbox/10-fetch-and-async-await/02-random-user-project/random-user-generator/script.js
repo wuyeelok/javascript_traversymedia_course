@@ -49,6 +49,7 @@ function displayRandomUser(userObj) {
 }
 
 function fetchUser() {
+  spinnerDiv.classList.remove("hidden");
   fetch(api)
     .then((response) => {
       if (!response.ok || response.status !== 200) {
@@ -79,7 +80,6 @@ function fetchUser() {
 }
 
 generateBtn.addEventListener("click", () => {
-  spinnerDiv.classList.remove("hidden");
   fetchUser();
 });
 
