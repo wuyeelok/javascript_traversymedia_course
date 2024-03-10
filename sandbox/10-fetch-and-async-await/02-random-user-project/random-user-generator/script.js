@@ -38,7 +38,7 @@ function displayRandomUser(userObj) {
                 <span class="font-bold">Phone: </span>${userObj.phone}
               </p>
               <p class="text-xl">
-                <span class="font-bold">Location: </span>${userObj.location.city} ${userObj.location.state}
+                <span class="font-bold">Location: </span>${userObj.location.city} ${userObj.location.country}
               </p>
               <p class="text-xl"><span class="font-bold">Age: </span>${userObj.dob.age}</p>
             </div>
