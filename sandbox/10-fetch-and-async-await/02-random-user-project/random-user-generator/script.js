@@ -3,8 +3,20 @@ console.log("Random User Mini Project");
 const generateBtn = document.getElementById("generate");
 const userDiv = document.getElementById("user");
 const spinnerDiv = document.querySelector(".spinner");
+const bodyEle = document.querySelector("body");
 
 const api = "https://randomuser.me/api/";
+
+function changeBGColor(gender) {
+  bodyEle.classList.remove("bg-purple-800");
+  bodyEle.classList.remove("bg-blue-800");
+
+  if (gender === "female") {
+    bodyEle.classList.add("bg-purple-800");
+  } else if (gender === "male") {
+    bodyEle.classList.add("bg-blue-800");
+  }
+}
 
 generateBtn.addEventListener("click", () => {
   spinnerDiv.classList.remove("hidden");
@@ -18,7 +30,10 @@ generateBtn.addEventListener("click", () => {
     })
     .then((responseObj) => responseObj.results)
     .then((results) => results[0])
-    .then((userObj) => console.log(userObj))
+    .then((userObj) => {
+      const gender = userObj.gender;
+      changeBGColor(gender);
+    })
     .catch((error) => {
       let msg;
 
