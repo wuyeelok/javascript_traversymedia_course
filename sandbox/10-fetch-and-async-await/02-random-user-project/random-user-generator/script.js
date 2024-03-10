@@ -19,8 +19,33 @@ function changeBGColor(gender) {
   }
 }
 
-function changeUserImg(imgUrl) {
-  imgEle.src = imgUrl;
+function showRandomUser(userObj) {
+  userDiv.innerHTML = `
+    <div class="flex justify-between">
+          <div class="flex">
+            <img
+              class="w-48 h-48 rounded-full mr-8"
+              src="${userObj.picture.large}"
+            />
+            <div class="space-y-3">
+              <p class="text-xl">
+                <span class="font-bold">Name: </span>${userObj.name.first} ${userObj.name.last}
+              </p>
+              <p class="text-xl">
+                <span class="font-bold">Email: </span>${userObj.email}
+              </p>
+              <p class="text-xl">
+                <span class="font-bold">Phone: </span>${userObj.phone}
+              </p>
+              <p class="text-xl">
+                <span class="font-bold">Location: </span>${userObj.location.city} ${userObj.location.state}
+              </p>
+              <p class="text-xl"><span class="font-bold">Age: </span>${userObj.dob.age}</p>
+            </div>
+          </div>
+        </div>
+    
+    `;
 }
 
 generateBtn.addEventListener("click", () => {
@@ -39,8 +64,7 @@ generateBtn.addEventListener("click", () => {
       const gender = userObj.gender;
       changeBGColor(gender);
 
-      const imgUrl = userObj.picture.large;
-      changeUserImg(imgUrl);
+      showRandomUser(userObj);
     })
     .catch((error) => {
       let msg;
