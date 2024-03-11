@@ -5,6 +5,19 @@ const apiUrl = "https://jsonplaceholder.typicode.com/todos";
 const todoList = document.getElementById("todo-list");
 const todoForm = document.getElementById("todo-form");
 
+function deleteTodo(e) {
+  const todoId = e.target.dataset.id;
+  console.log(todoId);
+
+  fetch(`${apiUrl}/${todoId}`, {
+    method: "DELETE",
+  })
+    .then((res) => {
+      e.target.remove();
+    })
+    .catch((err) => console.error(err));
+}
+
 function createTodoDiv(todo) {
   const divEle = document.createElement("div");
   divEle.innerText = todo.title;
@@ -13,6 +26,8 @@ function createTodoDiv(todo) {
   if (todo.completed) {
     divEle.classList.add("done");
   }
+
+  divEle.addEventListener("dblclick", deleteTodo);
 
   return divEle;
 }
