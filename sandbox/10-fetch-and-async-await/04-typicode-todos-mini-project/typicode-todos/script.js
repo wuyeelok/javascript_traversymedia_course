@@ -43,11 +43,7 @@ function toggleCompleted(e) {
     },
   })
     .then((res) => {
-      if (todoEle.classList.contains("done")) {
-        todoEle.classList.remove("done");
-      } else {
-        todoEle.classList.add("done");
-      }
+      todoEle.classList.toggle("done");
     })
     .catch((err) => console.error(err));
 }
