@@ -80,6 +80,10 @@ export default {
           __dirname,
           "sandbox/10-fetch-and-async-await/03-fetch-options/index.html"
         ),
+        typicode_todo_project: resolve(
+          __dirname,
+          "sandbox/10-fetch-and-async-await/04-typicode-todos-mini-project/typicode-todos/index.html"
+        ),
       },
     },
   },
