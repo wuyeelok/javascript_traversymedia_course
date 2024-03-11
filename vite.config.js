@@ -76,6 +76,10 @@ export default {
           __dirname,
           "sandbox/10-fetch-and-async-await/02-random-user-project/random-user-generator/index.html"
         ),
+        fetch_option: resolve(
+          __dirname,
+          "sandbox/10-fetch-and-async-await/03-fetch-options/index.html"
+        ),
       },
     },
   },
