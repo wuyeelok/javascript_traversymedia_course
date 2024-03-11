@@ -18,6 +18,40 @@ function deleteTodo(e) {
     .catch((err) => console.error(err));
 }
 
+function toggleCompleted(e) {
+  const todoEle = e.target;
+  const id = e.target.dataset.id;
+  const title = e.target.innerText;
+
+  let completed;
+  if (todoEle.classList.contains("done")) {
+    completed = false;
+  } else {
+    completed = true;
+  }
+
+  fetch(`${apiUrl}/${id}`, {
+    method: "PUT",
+    body: JSON.stringify({
+      id,
+      title,
+      completed,
+      userId: 1,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((res) => {
+      if (todoEle.classList.contains("done")) {
+        todoEle.classList.remove("done");
+      } else {
+        todoEle.classList.add("done");
+      }
+    })
+    .catch((err) => console.error(err));
+}
+
 function createTodoDiv(todo) {
   const divEle = document.createElement("div");
   divEle.innerText = todo.title;
@@ -28,6 +62,7 @@ function createTodoDiv(todo) {
   }
 
   divEle.addEventListener("dblclick", deleteTodo);
+  divEle.addEventListener("click", toggleCompleted);
 
   return divEle;
 }
