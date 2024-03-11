@@ -23,3 +23,22 @@ function createPost({ title, body }) {
 
 createPost({ title: 'My Post', body: 'This is my Post' });
  */
+
+function myCreatePost({ title, body }) {
+  fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    body: JSON.stringify({
+      title,
+      body,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+      token: "abd1234",
+    },
+  })
+    .then((resp) => resp.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.log(error));
+}
+
+myCreatePost({ title: "My Post", body: "My Body" });
