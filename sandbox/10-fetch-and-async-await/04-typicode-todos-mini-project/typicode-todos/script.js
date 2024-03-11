@@ -1,6 +1,6 @@
 console.log("Typicode Todos Mini-Project");
 
-const api = "https://jsonplaceholder.typicode.com/todos";
+const apiUrl = "https://jsonplaceholder.typicode.com/todos";
 
 const todoList = document.getElementById("todo-list");
 
@@ -15,7 +15,7 @@ function createTodoDiv(todo) {
   return divEle;
 }
 
-function showTodo(url, howMany) {
+function getTodos(url, howMany) {
   fetch(`${url}?_limit=${howMany}`)
     .then((resp) => resp.json())
     .then((todos) => {
@@ -28,7 +28,7 @@ function showTodo(url, howMany) {
 }
 
 function init() {
-  showTodo(api, 5);
+  getTodos(apiUrl, 5);
 }
 
 init();
