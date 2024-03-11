@@ -7,7 +7,6 @@ const todoForm = document.getElementById("todo-form");
 
 function deleteTodo(e) {
   const todoId = e.target.dataset.id;
-  console.log(todoId);
 
   fetch(`${apiUrl}/${todoId}`, {
     method: "DELETE",
