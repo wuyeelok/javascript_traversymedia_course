@@ -84,6 +84,10 @@ export default {
           __dirname,
           "sandbox/10-fetch-and-async-await/04-typicode-todos-mini-project/typicode-todos/index.html"
         ),
+        fetch_error_handle: resolve(
+          __dirname,
+          "sandbox/10-fetch-and-async-await/05-fetch-error-handling/index.html"
+        ),
       },
     },
   },
