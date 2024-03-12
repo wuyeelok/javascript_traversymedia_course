@@ -50,6 +50,8 @@ function displayRandomUser(userObj) {
 
 function fetchUser() {
   spinnerDiv.classList.remove("hidden");
+  generateBtn.disabled = true;
+
   fetch(api)
     .then((response) => {
       if (!response.ok || response.status !== 200) {
@@ -76,7 +78,10 @@ function fetchUser() {
       } */
       userDiv.innerHTML = `<p class="text-xl text-center text-red-500 mb-5">${error}</p>`;
     })
-    .finally(() => spinnerDiv.classList.add("hidden"));
+    .finally(() => {
+      spinnerDiv.classList.add("hidden");
+      generateBtn.disabled = false;
+    });
 }
 
 generateBtn.addEventListener("click", () => {
