@@ -53,7 +53,7 @@ function fetchUser() {
   fetch(api)
     .then((response) => {
       if (!response.ok || response.status !== 200) {
-        throw new Error("Fail to get user!");
+        throw new Error("Request Failed!");
       }
 
       return response.json();
@@ -67,14 +67,14 @@ function fetchUser() {
       displayRandomUser(userObj);
     })
     .catch((error) => {
-      let msg;
+      /*  let msg;
 
       if (error.message.includes("Failed to fetch")) {
         msg = "Error";
       } else {
         msg = error.message;
-      }
-      userDiv.innerText = msg;
+      } */
+      userDiv.innerHTML = `<p class="text-xl text-center text-red-500 mb-5">${error}</p>`;
     })
     .finally(() => spinnerDiv.classList.add("hidden"));
 }
