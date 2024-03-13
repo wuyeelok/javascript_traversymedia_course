@@ -33,3 +33,11 @@ const getPosts = async () => {
 
 getPosts().catch((error) => console.log(error));
  */
+
+const myPromise = new Promise((res, rej) => {
+  setTimeout(() => {
+    res({ age: 13, sex: "Male", ID: "XXXX" });
+  }, 2000);
+});
+
+myPromise.then((data) => console.log(data));
