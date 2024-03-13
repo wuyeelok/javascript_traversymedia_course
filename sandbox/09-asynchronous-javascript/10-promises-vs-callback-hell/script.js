@@ -30,8 +30,17 @@ function getMyDataProm(endpointURL) {
   });
 }
 
+function randomWait() {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      res();
+    }, Math.floor(Math.random() * 3000) + 100);
+  });
+}
+
 async function getMyDataProm3(endpointURL) {
   try {
+    const waiting = await randomWait();
     const resp = await fetch(endpointURL);
     if (!resp.ok) {
       throw new Error("Fail to get data");
@@ -86,7 +95,7 @@ async function getAllMyData3() {
   );
 }
 
-// getAllMyData3();
+getAllMyData3();
 
 async function getAllUsingPromiseAll() {
   const [mRes, aRes, dRes] = await Promise.all([
@@ -114,4 +123,4 @@ async function getAllUsingPromiseAll2() {
   console.log(movies, actors, directors);
 }
 
-getAllUsingPromiseAll2();
+// getAllUsingPromiseAll2();
