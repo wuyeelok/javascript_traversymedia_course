@@ -88,6 +88,10 @@ export default {
           __dirname,
           "sandbox/10-fetch-and-async-await/05-fetch-error-handling/index.html"
         ),
+        async_await: resolve(
+          __dirname,
+          "sandbox/10-fetch-and-async-await/06-async-await/index.html"
+        ),
       },
     },
   },
