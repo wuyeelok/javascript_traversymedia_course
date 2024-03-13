@@ -49,7 +49,7 @@ async function getMyPromise() {
 
 // getMyPromise();
 
-async function getRandomJoke() {
+/* async function getRandomJoke() {
   const response = await fetch("https://api.chucknorris.io/jokes/random");
 
   const jokeObj = await response.json();
@@ -62,4 +62,15 @@ async function getRandomJoke() {
 
 getRandomJoke();
 
-console.log("End of js file");
+console.log("End of js file"); */
+
+const getTodos = async () => {
+  const resp = await fetch(
+    "https://jsonplaceholder.typicode.com/todos?_limit=4"
+  );
+  const todos = await resp.json();
+
+  console.log(todos);
+};
+
+getTodos();
