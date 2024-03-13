@@ -92,6 +92,10 @@ export default {
           __dirname,
           "sandbox/10-fetch-and-async-await/06-async-await/index.html"
         ),
+        try_catch: resolve(
+          __dirname,
+          "sandbox/10-fetch-and-async-await/07-try-catch/index.html"
+        ),
       },
     },
   },
