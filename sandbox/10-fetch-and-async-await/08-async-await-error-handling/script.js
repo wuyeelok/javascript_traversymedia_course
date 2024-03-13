@@ -1,6 +1,6 @@
 console.log("Handle error in async await");
 
-/* const getMyUsers = async () => {
+const getMyUsers = async () => {
   try {
     // const resp = await fetch("https://jsonplaceholder.typicode.com/todos/1");
     const resp = await fetch(
@@ -19,10 +19,9 @@ console.log("Handle error in async await");
   }
 };
 
-getMyUsers();
- */
+document.getElementById("btn").addEventListener("click", getMyUsers);
 
-const getMyData = async () => {
+/* const getMyData = async () => {
   // const resp = await fetch("https://jsonplaceholder.typicode.com/todos/1");
   const resp = await fetch(
     "https://run.mocky.io/v3/4b451c6b-f966-40d9-9482-8e97c8222ba9"
@@ -37,4 +36,4 @@ const getMyData = async () => {
   console.log(data);
 };
 
-getMyData().catch((err) => console.log(err));
+getMyData().catch((err) => console.log(err)); */
