@@ -47,4 +47,19 @@ async function getMyPromise() {
   console.log(myResp);
 }
 
-getMyPromise();
+// getMyPromise();
+
+async function getRandomJoke() {
+  const response = await fetch("https://api.chucknorris.io/jokes/random");
+
+  const jokeObj = await response.json();
+  console.log(jokeObj);
+
+  const joke = jokeObj.value;
+  console.log(joke);
+  console.log("Ha Ha");
+}
+
+getRandomJoke();
+
+console.log("End of js file");
