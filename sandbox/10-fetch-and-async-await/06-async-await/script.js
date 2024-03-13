@@ -40,4 +40,11 @@ const myPromise = new Promise((res, rej) => {
   }, 2000);
 });
 
-myPromise.then((data) => console.log(data));
+// myPromise.then((data) => console.log(data));
+
+async function getMyPromise() {
+  const myResp = await myPromise;
+  console.log(myResp);
+}
+
+getMyPromise();
