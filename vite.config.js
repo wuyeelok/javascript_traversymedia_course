@@ -7,6 +7,7 @@ export default {
   build: {
     rollupOptions: {
       input: {
+        404: resolve(__dirname, "404.html"),
         main: resolve(__dirname, "index.html"),
         truthy_falsy: resolve(
           __dirname,
