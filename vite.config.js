@@ -101,6 +101,10 @@ export default {
           __dirname,
           "sandbox/10-fetch-and-async-await/08-async-await-error-handling/index.html"
         ),
+        object_literal_this: resolve(
+          __dirname,
+          "sandbox/13-oop-constructors-prototypes/01-object-literals-this/index.html"
+        ),
       },
     },
   },
